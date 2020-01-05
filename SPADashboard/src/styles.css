@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box !important;
+  }
+  
+  html {
+    height: 100% !important;
+  }
+  
+  body {
+    background-color: #1c2228 !important;
+    color: #f7fff7 !important;
+    height: 100% !important;
+    font-family: 'Source Sans Pro', sans-serif !important;
+  }
+  
+  a {
+    color: #44aacd !important;
+  }
+  
+  a:hover {
+    color: #44aBcf !important;
+  }
+  
+  .shadow {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2) 0 5px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .section-container {
+    padding: 30px;
+  }
+  
