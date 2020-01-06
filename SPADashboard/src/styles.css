@@ -28,4 +28,27 @@
   .section-container {
     padding: 30px;
   }
-  
+  .card-theme{
+    background-color: #191F26 !important;
+    border: none !important;
+    border-radius: 2px !important;
+  }
+
+  .card-heading-theme{
+    color: #eee !important;
+    border-top-right-radius: 8px !important;
+    border-top-left-radius: 8px !important;
+    padding: 12px !important;
+  }
+
+ /* .card-body-theme{
+     background-color: #494f56;
+  }*/
+.cards{
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.section-container{
+  padding: 30ox;
+}
