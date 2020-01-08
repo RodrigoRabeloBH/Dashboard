@@ -9,7 +9,7 @@ export class PieChartComponent implements OnInit {
 
   constructor() { }
   public pieChartData: number[] = [350, 450, 120];
-  public pieChartLabel: string[] = ['XYZ Logistic', 'Main St Bakery', 'Acme Hosting'];
+  public pieChartLabels: string[] = ['XYZ Logistic', 'Main St Bakery', 'Acme Hosting'];
   public pieChartType = 'doughnut';
   public pieChartLegend = true;
   public colors: any[] = [

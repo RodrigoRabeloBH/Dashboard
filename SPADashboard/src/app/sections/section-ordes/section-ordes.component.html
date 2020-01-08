@@ -1,1 +1,25 @@
-<p>section-ordes works!</p>
+<div class="section-container">
+    <h2>Latest Orders</h2>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Amount</th>
+                <th>Order Placed</th>
+                <th>Order Fulfilled</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td class="text-white">{{order.Id}}</td>
+                <td class="text-white">{{order.Customer.Name}}</td>
+                <td class="text-white">{{order.Total}}</td>
+                <td class="text-white">{{order.Placed | date: 'mediumDate'}}</td>
+                <td class="text-white">{{order.Fulfilled | date: 'mediumDate'}}</td>
+                <td class="text-white">{{order.Status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
