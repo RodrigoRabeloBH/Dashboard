@@ -1,6 +1,4 @@
 import { Customer } from './Customer';
-import { Stream } from 'stream';
-
 
 export interface Orders{
     Id: number;
