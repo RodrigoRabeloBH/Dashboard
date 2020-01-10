@@ -1,8 +1,7 @@
 namespace APIDashboard.Models
 {
-    public class Server
+    public class Server : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public bool IsOnline { get; set; }
     }

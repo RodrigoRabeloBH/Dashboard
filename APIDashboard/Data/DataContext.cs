@@ -1,3 +1,4 @@
+using APIDashboard.Data.Mapping;
 using APIDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 

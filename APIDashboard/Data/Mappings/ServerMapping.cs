@@ -2,7 +2,7 @@ using APIDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace APIDashboard.Data
+namespace APIDashboard.Data.Mapping
 {
     public class ServerMapping : IEntityTypeConfiguration<Server>
     {
