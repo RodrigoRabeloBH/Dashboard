@@ -22,7 +22,7 @@ namespace APIDashboard
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<DataContext, DataContext>();
-            services.AddScoped<ICostumer, CostumerRepository>();
+            services.AddScoped<ICustomer, CustomerRepository>();
             services.AddScoped<IServer, ServerRepository>();
             services.AddScoped<IOrder, OrderRepository>();
         }

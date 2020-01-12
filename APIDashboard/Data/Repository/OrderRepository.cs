@@ -12,10 +12,10 @@ namespace APIDashboard.Data.Repository
     {
         public OrderRepository(DataContext context) : base(context) { }
 
-        public async Task<Costumer> GetCostumerByOrdeId(int orderId)
+        public async Task<Customer> GetCostumerByOrdeId(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == orderId);
-            return await _context.Costumers.FirstOrDefaultAsync(c => c.Id == order.Costumer.Id);
+            return await _context.Costumers.FirstOrDefaultAsync(c => c.Id == order.Customer.Id);
         }
 
         public async Task<IEnumerable<Order>> GetOrdersByDate(DateTime? minDate, DateTime? maxDate)
@@ -25,7 +25,7 @@ namespace APIDashboard.Data.Repository
             if (minDate.HasValue) result = result.Where(r => r.Placed >= minDate.Value);
             if (maxDate.HasValue) result = result.Where(r => r.Placed <= maxDate.Value);
             return await result
-                        .Include(r => r.Costumer)
+                        .Include(r => r.Customer)
                         .OrderByDescending(r => r.Placed)
                         .ToListAsync();
         }

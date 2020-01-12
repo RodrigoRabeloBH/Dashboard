@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIDashboard.Data.Repository
 {
-    public class CostumerRepository : Repository<Costumer>, ICostumer
+    public class CustomerRepository : Repository<Customer>, ICustomer
     {
-        public CostumerRepository(DataContext context) : base(context) { }
+        public CustomerRepository(DataContext context) : base(context) { }
 
-        public async Task<Costumer> GetCostumerOrders(int id)
+        public async Task<Customer> GetCustomerOrders(int id)
         {
             return await _context.Costumers
             .AsNoTracking()

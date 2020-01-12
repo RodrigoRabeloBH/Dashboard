@@ -9,7 +9,7 @@ namespace APIDashboard.Models
         public DateTime? Completed { get; set; }
 
         // EF relation
-        public int CostumerId { get; set; }
-        public Costumer Costumer { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

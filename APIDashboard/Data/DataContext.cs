@@ -7,7 +7,7 @@ namespace APIDashboard.Data
     public class DataContext : DbContext
     {
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Costumer> Costumers { get; set; }
+        public DbSet<Customer> Costumers { get; set; }
         public DbSet<Server> Servers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,7 +19,7 @@ namespace APIDashboard.Data
         {
             modelBuilder.ApplyConfiguration(new OrderMapping());
             modelBuilder.ApplyConfiguration(new ServerMapping());
-            modelBuilder.ApplyConfiguration(new CostumerMapping());
+            modelBuilder.ApplyConfiguration(new CustomerMapping());
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace APIDashboard.Models
 {
-    public class Costumer : Entity
+    public class Customer : Entity
     {
 
         public string Name { get; set; }
