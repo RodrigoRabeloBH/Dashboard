@@ -1,6 +1,7 @@
 ﻿using APIDashboard.Data;
 using APIDashboard.Data.Interfaces;
 using APIDashboard.Data.Repository;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,12 @@ namespace APIDashboard
             services.AddScoped<ICustomer, CustomerRepository>();
             services.AddScoped<IServer, ServerRepository>();
             services.AddScoped<IOrder, OrderRepository>();
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddTransient<SeedDB>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedDB seed)
         {
             if (env.IsDevelopment())
             {
@@ -39,8 +43,10 @@ namespace APIDashboard
                 app.UseHsts();
             }
 
+            seed.SeedData(20, 50);
             app.UseHttpsRedirection();
             app.UseMvc();
+
         }
     }
 }

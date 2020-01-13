@@ -11,5 +11,10 @@ namespace APIDashboard.Models
         // EF relation
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        public Order()
+        {
+            Placed = DateTime.Now;
+        }
     }
 }

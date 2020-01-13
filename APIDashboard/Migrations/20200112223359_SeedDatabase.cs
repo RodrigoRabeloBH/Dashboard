@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace APIDashboard.Migrations
 {
-    public partial class Initial : Migration
+    public partial class SeedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Costumers",
+                name: "Customers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -20,7 +20,7 @@ namespace APIDashboard.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Costumers", x => x.Id);
+                    table.PrimaryKey("PK_Customers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,23 +46,23 @@ namespace APIDashboard.Migrations
                     Total = table.Column<decimal>(nullable: false),
                     Placed = table.Column<DateTime>(nullable: false),
                     Completed = table.Column<DateTime>(nullable: true),
-                    CostumerId = table.Column<int>(nullable: false)
+                    CustomerId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Costumers_CostumerId",
-                        column: x => x.CostumerId,
-                        principalTable: "Costumers",
+                        name: "FK_Orders_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_CostumerId",
+                name: "IX_Orders_CustomerId",
                 table: "Orders",
-                column: "CostumerId");
+                column: "CustomerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -74,7 +74,7 @@ namespace APIDashboard.Migrations
                 name: "Servers");
 
             migrationBuilder.DropTable(
-                name: "Costumers");
+                name: "Customers");
         }
     }
 }

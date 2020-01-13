@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIDashboard.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200109230537_Initial")]
-    partial class Initial
+    [Migration("20200112223359_SeedDatabase")]
+    partial class SeedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace APIDashboard.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("APIDashboard.Models.Costumer", b =>
+            modelBuilder.Entity("APIDashboard.Models.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace APIDashboard.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Costumers");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("APIDashboard.Models.Order", b =>
@@ -55,7 +55,7 @@ namespace APIDashboard.Migrations
 
                     b.Property<DateTime?>("Completed");
 
-                    b.Property<int>("CostumerId");
+                    b.Property<int>("CustomerId");
 
                     b.Property<DateTime>("Placed");
 
@@ -63,7 +63,7 @@ namespace APIDashboard.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CostumerId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -89,9 +89,9 @@ namespace APIDashboard.Migrations
 
             modelBuilder.Entity("APIDashboard.Models.Order", b =>
                 {
-                    b.HasOne("APIDashboard.Models.Costumer", "Costumer")
+                    b.HasOne("APIDashboard.Models.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CostumerId")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

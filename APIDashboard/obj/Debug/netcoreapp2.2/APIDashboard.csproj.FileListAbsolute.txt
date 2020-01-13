@@ -4,7 +4,6 @@ C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\APIDashboard.runtime
 C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\APIDashboard.dll
 C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\APIDashboard.pdb
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.csprojAssemblyReference.cache
-C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.csproj.CoreCompileInputs.cache
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.RazorAssemblyInfo.cache
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.RazorAssemblyInfo.cs
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.AssemblyInfoInputs.cache
@@ -12,3 +11,4 @@ C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.Assembl
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.RazorTargetAssemblyInfo.cache
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.dll
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.pdb
+C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.csproj.CoreCompileInputs.cache

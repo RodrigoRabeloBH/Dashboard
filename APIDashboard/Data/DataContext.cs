@@ -7,7 +7,7 @@ namespace APIDashboard.Data
     public class DataContext : DbContext
     {
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Customer> Costumers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Server> Servers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -12,7 +12,7 @@ namespace APIDashboard.Data.Repository
 
         public async Task<Customer> GetCustomerOrders(int id)
         {
-            return await _context.Costumers
+            return await _context.Customers
             .AsNoTracking()
             .Include(c => c.Orders)
             .FirstOrDefaultAsync(c => c.Id == id);

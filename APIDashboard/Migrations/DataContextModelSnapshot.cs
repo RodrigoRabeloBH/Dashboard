@@ -42,7 +42,7 @@ namespace APIDashboard.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Costumers");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("APIDashboard.Models.Order", b =>

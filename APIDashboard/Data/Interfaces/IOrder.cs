@@ -9,5 +9,7 @@ namespace APIDashboard.Data.Interfaces
     {
         Task<IEnumerable<Order>> GetOrdersByDate(DateTime? minDate, DateTime? maxDate);
         Task<Customer> GetCostumerByOrdeId(int oderId);
+        Task<Order> GetOrderCustomer(int id);
+        Task<Customer> GetCustomer(int customerId);
     }
 }
