@@ -1,9 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APIDashboard.Data.Interfaces;
 using APIDashboard.Dto;
+using APIDashboard.Helpers;
 using APIDashboard.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -15,44 +15,55 @@ namespace APIDashboard.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrder _order;
+
         private readonly IMapper _mapper;
         public OrdersController(IOrder order, IMapper mapper)
         {
             _order = order;
             _mapper = mapper;
-
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
+        [HttpGet("{pageIndex:int}/{pageSize:int}")]
+        public async Task<IActionResult> Index(int pageIndex, int pageSize)
         {
-            var orders = await _order.GetAll();
+            var orders = await _order.GetAllOrdersAndCustomer();
+            var page = new PaginatedResponse<Order>(orders, pageIndex, pageSize);
+            var totalPages = Math.Ceiling((double)orders.Count() / pageSize);
 
-            var list = orders.Select(o => new OrderIndexDto
+            var response = new
             {
-                Id = o.Id,
-                Placed = o.Placed.ToString("dd/MM/yyyy"),
-                Total = o.Total,
-                Completed = o.Completed?.ToString("dd/MM/yyyy")
-            });
+                Page = page,
+                TotalPages = totalPages
+            };
+            return Ok(response);
+        }
 
-            var model = _mapper.Map<IEnumerable<OrderIndexDto>>(list);
-            return Ok(model);
+        [HttpGet("ByState")]
+        public async Task<IActionResult> ByState()
+        {
+            return Ok(await _order.GetByState());
+        }
+
+        [HttpGet("ByCustomer")]
+        public async Task<IActionResult> ByCustomer()
+        {
+            return Ok(await _order.GetByCustomer());
         }
 
         [HttpGet("{id:int:min(1)}", Name = "Detail")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Detail(int id)
         {
             var order = await _order.GetOrderCustomer(id);
             if (order == null) return NotFound($"Not exist any order with id:{id}!");
             var model = new OrderDto
             {
                 Id = order.Id,
-                Placed = order.Placed,
+                Placed = order.Placed.ToString("dd/MM/yyyy"),
                 Total = order.Total,
                 Customer = order.Customer.Name,
                 CustomerId = order.CustomerId,
-                Completed = order.Completed
+                Completed = order.Completed,
+                State = order.Customer.State
             };
 
             return Ok(model);

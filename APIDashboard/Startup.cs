@@ -39,14 +39,12 @@ namespace APIDashboard
             }
             else
             {
-
                 app.UseHsts();
             }
 
-            seed.SeedData(20, 50);
+            seed.SeedData(20, 100);
             app.UseHttpsRedirection();
             app.UseMvc();
-
         }
     }
 }

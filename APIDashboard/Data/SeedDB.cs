@@ -41,7 +41,7 @@ namespace APIDashboard.Data
 
             for (int i = 1; i <= nOrders; i++)
             {
-                var randomCustomerId = rand.Next(_context.Customers.Count());
+                var randomCustomerId = rand.Next(1, _context.Customers.Count());
                 var placed = Helpers.Helper.GetRandomOrderPlaced();
                 var completed = Helpers.Helper.GetRandomOrderCompleted(placed);
 

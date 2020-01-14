@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APIDashboard.Data.Interfaces;
+using APIDashboard.Dto.Order;
 using APIDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,6 +42,46 @@ namespace APIDashboard.Data.Repository
         public async Task<Customer> GetCustomer(int customerId)
         {
             return await _context.Customers.FirstOrDefaultAsync(c => c.Id == customerId);
+        }
+
+        public async Task<IEnumerable<Order>> GetAllOrdersAndCustomer()
+        {
+            return await _context.Orders
+                .Include(o => o.Customer)
+                .OrderByDescending(o => o.Placed)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<OrderListStateDto>> GetByState()
+        {
+            var orders = await GetAllOrdersAndCustomer();
+
+            var groupedResult = orders
+                .GroupBy(o => o.Customer.State)
+                .Select(grp => new OrderListStateDto
+                {
+                    State = grp.Key,
+                    Total = grp.Sum(x => x.Total)
+                })
+                .OrderByDescending(res => res.Total)
+                .ToList();
+            return groupedResult;
+        }
+        public async Task<IEnumerable<OrderListCustomerDto>> GetByCustomer()
+        {
+            var orders = await GetAllOrdersAndCustomer();
+
+            var groupedResult = orders
+                .GroupBy(o => o.Customer.Id)
+                .ToList()
+                .Select(grp => new OrderListCustomerDto
+                {
+                    Name = _context.Customers.Find(grp.Key).Name,
+                    Total = grp.Sum(x => x.Total)
+                })
+                .OrderBy(res => res.Name)
+                .ToList();
+            return groupedResult;
         }
     }
 }

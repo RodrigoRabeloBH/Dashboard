@@ -10,8 +10,6 @@ namespace APIDashboard.AutoMapper
         {
             CreateMap<Customer, CustomerDto>().ReverseMap();
             CreateMap<Order, OrderDto>().ReverseMap();
-            CreateMap<Server, ServerDto>().ReverseMap();
-            CreateMap<Order, OrderIndexDto>().ReverseMap();
         }
     }
 }
