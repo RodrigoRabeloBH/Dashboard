@@ -27,8 +27,8 @@ namespace APIDashboard
             services.AddScoped<IServer, ServerRepository>();
             services.AddScoped<IOrder, OrderRepository>();
             services.AddAutoMapper(typeof(Startup));
-
             services.AddTransient<SeedDB>();
+            services.AddCors(opt => opt.AddPolicy("CorsPolicy", c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedDB seed)
@@ -36,6 +36,7 @@ namespace APIDashboard
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("CorsPolicy");
             }
             else
             {
