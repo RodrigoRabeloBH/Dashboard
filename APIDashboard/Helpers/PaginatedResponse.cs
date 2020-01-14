@@ -9,8 +9,8 @@ namespace APIDashboard.Helpers
         public IEnumerable<T> Data { get; set; }
         public PaginatedResponse(IEnumerable<T> data, int i, int len)
         {
-            Data = data.Skip((i - 1) * len).Take(len).ToList();
             Total = data.Count();
+            Data = data.Skip((i - 1) * len).Take(len).ToList();
         }
     }
 }

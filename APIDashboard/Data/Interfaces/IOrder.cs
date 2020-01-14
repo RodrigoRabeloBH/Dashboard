@@ -11,7 +11,7 @@ namespace APIDashboard.Data.Interfaces
         Task<IEnumerable<Order>> GetOrdersByDate(DateTime? minDate, DateTime? maxDate);
         Task<IEnumerable<Order>> GetAllOrdersAndCustomer();
         Task<IEnumerable<OrderListStateDto>> GetByState();
-        Task<IEnumerable<OrderListCustomerDto>> GetByCustomer();
+        Task<IEnumerable<OrderListCustomerDto>> GetByCustomer(int n);
         Task<Customer> GetCostumerByOrdeId(int oderId);
         Task<Order> GetOrderCustomer(int id);
         Task<Customer> GetCustomer(int customerId);

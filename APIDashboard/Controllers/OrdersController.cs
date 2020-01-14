@@ -26,8 +26,8 @@ namespace APIDashboard.Controllers
         [HttpGet("{pageIndex:int}/{pageSize:int}")]
         public async Task<IActionResult> Index(int pageIndex, int pageSize)
         {
-            var orders = await _order.GetAllOrdersAndCustomer();
-            var page = new PaginatedResponse<Order>(orders, pageIndex, pageSize);
+            var orders = await _order.GetAll();         
+            var page = new PaginatedResponse<Order>(orders.OrderByDescending(o => o.Total), pageIndex, pageSize);
             var totalPages = Math.Ceiling((double)orders.Count() / pageSize);
 
             var response = new
@@ -44,10 +44,10 @@ namespace APIDashboard.Controllers
             return Ok(await _order.GetByState());
         }
 
-        [HttpGet("ByCustomer")]
-        public async Task<IActionResult> ByCustomer()
+        [HttpGet("ByCustomer/{n}")]
+        public async Task<IActionResult> ByCustomer(int n)
         {
-            return Ok(await _order.GetByCustomer());
+            return Ok(await _order.GetByCustomer(n));
         }
 
         [HttpGet("{id:int:min(1)}", Name = "Detail")]

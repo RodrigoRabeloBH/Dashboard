@@ -67,19 +67,19 @@ namespace APIDashboard.Data.Repository
                 .ToList();
             return groupedResult;
         }
-        public async Task<IEnumerable<OrderListCustomerDto>> GetByCustomer()
+        public async Task<IEnumerable<OrderListCustomerDto>> GetByCustomer(int n)
         {
             var orders = await GetAllOrdersAndCustomer();
 
             var groupedResult = orders
-                .GroupBy(o => o.Customer.Id)
-                .ToList()
+                .GroupBy(o => o.Customer.Id)        
                 .Select(grp => new OrderListCustomerDto
                 {
                     Name = _context.Customers.Find(grp.Key).Name,
                     Total = grp.Sum(x => x.Total)
                 })
-                .OrderBy(res => res.Name)
+                .OrderByDescending(res => res.Total)
+                .Take(n)
                 .ToList();
             return groupedResult;
         }
