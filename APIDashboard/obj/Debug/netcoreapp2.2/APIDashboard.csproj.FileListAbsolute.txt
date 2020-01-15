@@ -11,4 +11,7 @@ C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.Assembl
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.RazorTargetAssemblyInfo.cache
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.dll
 C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.pdb
-C:\Dev\DashboardWebApp\APIDashboard\obj\Debug\netcoreapp2.2\APIDashboard.csproj.CoreCompileInputs.cache
+C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\global.json
+C:\Dev\DashboardWebApp\APIDashboard\bin\Debug\netcoreapp2.2\Properties\launchSettings.json

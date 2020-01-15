@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using APIDashboard.Data.Interfaces;
 using APIDashboard.Dto;
+using APIDashboard.Dto.Order;
 using APIDashboard.Helpers;
 using APIDashboard.Models;
 using AutoMapper;
@@ -26,8 +27,17 @@ namespace APIDashboard.Controllers
         [HttpGet("{pageIndex:int}/{pageSize:int}")]
         public async Task<IActionResult> Index(int pageIndex, int pageSize)
         {
-            var orders = await _order.GetAll();
-            var page = new PaginatedResponse<Order>(orders.OrderByDescending(o => o.Total), pageIndex, pageSize);
+            var orders = await _order.GetAllOrdersAndCustomer();
+            var model = orders.Select(o => new OrderIndexDto
+            {
+                Id = o.Id,
+                Total = o.Total,
+                Placed = o.Placed,
+                Completed = o.Completed,
+                Customer = o.Customer.Name
+            });
+
+            var page = new PaginatedResponse<OrderIndexDto>(model.OrderByDescending(o => o.Total), pageIndex, pageSize);
             var totalPages = Math.Ceiling((double)orders.Count() / pageSize);
 
             var response = new
@@ -46,7 +56,7 @@ namespace APIDashboard.Controllers
 
         [HttpGet("ByCustomer/{n:int:min(1)}")]
         public async Task<IActionResult> ByCustomer(int n)
-        {            
+        {
             return Ok(await _order.GetByCustomer(n));
         }
 

@@ -59,7 +59,7 @@ namespace APIDashboard.Helpers
             }
             var prefix = GetRandom(bizPrefix);
             var suffix = GetRandom(bizSuffix);
-            var bizName = prefix + suffix;
+            var bizName = prefix + " " + suffix;
 
             if (names.Contains(bizName)) MakeUniqueCustomerName(names);
 

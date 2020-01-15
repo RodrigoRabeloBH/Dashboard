@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace APIDashboard.Migrations
 {
-    public partial class SeedDatabase : Migration
+    public partial class Correcao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Orders } from 'src/app/shared/Orders';
+import { SalesDataService } from 'src/app/_services/SalesData.service';
 
 
 @Component({
@@ -9,28 +10,29 @@ import { Orders } from 'src/app/shared/Orders';
 })
 export class SectionOrdesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _order: SalesDataService) { }
 
-  orders: Orders[] = [
-    {
-      Customer: { Email: 'doe@email.com', Id: 1, Name: 'John Doe', State: 'CO' },
-      Fulfilled: new Date(2019, 9, 8),
-      Id: 2,
-      Placed: new Date(2019, 8, 7),
-      Total: 250,
-      Status: 'Completed'
-    },
-    {
-      Customer: { Email: 'doe@email.com', Id: 1, Name: 'John Doe', State: 'CO' },
-      Fulfilled: new Date(2019, 11, 23),
-      Id: 2,
-      Placed: new Date(2019, 9, 17),
-      Total: 250,
-      Status: 'Completed'
-    }
-  ];
+  orders: any[];
+  total: number = 0;
+  page: number = 1;
+  limit: number = 8;
+  loading: boolean = false;
 
   ngOnInit() {
+    this.getOrders();
   }
-
+  getOrders() {
+    this._order.getData(this.page, this.limit).subscribe(o => {
+      this.orders = o;
+    });
+  }
+  goToPrevious(): void {
+    this.page < 1 ? this.page = 1 : this.page--;
+    console.log(this.page);
+    this.getOrders();
+  }
+  goToNext(): void {
+    this.page++;
+    this.getOrders();
+  }
 }

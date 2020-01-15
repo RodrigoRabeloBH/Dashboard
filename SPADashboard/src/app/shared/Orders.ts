@@ -5,6 +5,5 @@ export interface Orders{
     Customer: Customer;
     Total: number;
     Placed: Date;
-    Fulfilled: Date;
-    Status: string; 
+    Completed: Date;  
 }

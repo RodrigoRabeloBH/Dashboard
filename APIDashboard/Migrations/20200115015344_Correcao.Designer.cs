@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIDashboard.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200112223359_SeedDatabase")]
-    partial class SeedDatabase
+    [Migration("20200115015344_Correcao")]
+    partial class Correcao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
