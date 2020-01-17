@@ -1,6 +1,14 @@
 <div class="pages">
-    <span class="page-counts"></span>
-    <span class="page-totals">total pages: {{totalPages()}} </span>
-  <button class="btn btn-sm btn-info mr-3 ml-3" (click)="onPrev()">Previous Page</button>
-  <button class="btn btn-sm btn-info" (click)="onNext()">Next Page</button>
+  <span class="page-counts"></span>
+  <span class="page-totals">Pages: {{totalPages() +1 - page}} </span>
+  <button class="btn btn-sm btn-info mx-1" (click)="onPrev()" [disabled]="page === 1">
+    <<
+  </button>
+  <button class="btn btn-sm btn-secondary mx-1" *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)"
+    [ngClass]="{'active': pageNum === page, 'disabled': loading}">
+    {{pageNum}}
+  </button>
+  <button class="btn btn-sm btn-info mx-1" (click)="onNext()" [disabled]="page === totalPages()">
+    >>
+  </button>
 </div>

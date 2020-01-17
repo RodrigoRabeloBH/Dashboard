@@ -1,54 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
 * {
-    box-sizing: border-box !important;
-  }
-  
-  html {
-    height: 100% !important;
-  }
-  
-  body {
-    background-color: #1c2228 !important;
-    color: #f7fff7 !important;
-    height: 100% !important;
-    font-family: 'Source Sans Pro', sans-serif !important;
-  }
-  
-  a {
-    color: #44aacd !important;
-  }
-  
-  a:hover {
-    color: #44aBcf !important;
-  }
-  
-  .shadow {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2) 0 5px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  .section-container {
-    padding: 30px;
-  }
-  .card-theme{
-    background-color: #191F26 !important;
-    border: none !important;
-    border-radius: 2px !important;
-  }
+  box-sizing: border-box !important;
 
-  .card-heading-theme{
-    color: #eee !important;
-    border-top-right-radius: 8px !important;
-    border-top-left-radius: 8px !important;
-    padding: 12px !important;
-  }
+}
 
- /* .card-body-theme{
+html {
+  height: 100% !important;
+}
+
+body {
+  background-color: #1c2228 !important;
+  color: #f7fff7 !important;
+  height: 100% !important;
+  font-family: 'Nanum Gothic', sans-serif !important;
+}
+
+a {
+  color: #44aacd !important;
+}
+
+a:hover {
+  color: #44aBcf !important;
+}
+
+.shadow {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2) 0 5px 6px rgba(0, 0, 0, 0.3);
+}
+
+.section-container {
+  padding: 30px;
+}
+
+.card-theme {
+  background-color: #191F26 !important;
+  border: none !important;
+  border-radius: 2px !important;
+}
+
+.card-heading-theme {
+  color: #eee !important;
+  border-top-right-radius: 8px !important;
+  border-top-left-radius: 8px !important;
+  padding: 12px !important;
+}
+
+/* .card-body-theme{
      background-color: #494f56;
   }*/
-.cards{
+.cards {
   display: flex !important;
   flex-direction: column !important;
 }
 
-.section-container{
+.section-container {
   padding: 30ox;
 }
