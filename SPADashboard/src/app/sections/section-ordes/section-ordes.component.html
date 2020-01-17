@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of orders.page.data">
+      <tr *ngFor="let order of orders">
         <td class="text-white">{{order.id}}</td>
         <td class="text-white">{{order.customer}}</td>
         <td class="text-white">{{order.total}}</td>
@@ -20,5 +20,15 @@
       </tr>
     </tbody>
   </table> 
-  <app-pagination (goPrev)="goToPrevious()" (goNext)="goToNext()"></app-pagination>
+  <hr>
+  <app-pagination 
+    (goPrev)="goToPrevious()"
+    (goNext)="goToNext()"
+    (goPage)="goToPage($event)"
+    [page]="page"
+    [perPage]="limit"
+    [page]="page"
+    [count]="total"
+    >
+  </app-pagination>
 </div>

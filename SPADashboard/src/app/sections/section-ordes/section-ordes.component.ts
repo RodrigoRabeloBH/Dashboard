@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Orders } from 'src/app/shared/Orders';
 import { SalesDataService } from 'src/app/_services/SalesData.service';
 
 
@@ -15,24 +14,30 @@ export class SectionOrdesComponent implements OnInit {
   orders: any[];
   total: number = 0;
   page: number = 1;
-  limit: number = 8;
+  limit: number = 5;
   loading: boolean = false;
 
   ngOnInit() {
     this.getOrders();
   }
   getOrders() {
-    this._order.getData(this.page, this.limit).subscribe(o => {
-      this.orders = o;
+    this._order.getData(this.page, this.limit).subscribe(o => {      
+      this.orders = o['page']['data'];
+      this.total = o['page'].total;
+      this.loading = false;
     });
   }
   goToPrevious(): void {
-    this.page < 1 ? this.page = 1 : this.page--;
-    console.log(this.page);
+    this.page < 1 ? this.page = 1 : this.page--;    
     this.getOrders();
   }
   goToNext(): void {
     this.page++;
+    this.getOrders();
+  }
+
+  goPage(n: number): void {
+    this.page = n;
     this.getOrders();
   }
 }

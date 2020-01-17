@@ -1,2 +1,6 @@
-<button class="btn btn-sm btn-info mr-3" (click)="onPrev()">Previous Page</button>
-<button class="btn btn-sm btn-info" (click)="onNext()">Next Page</button>
+<div class="pages">
+    <span class="page-counts"></span>
+    <span class="page-totals">total pages: {{totalPages()}} </span>
+  <button class="btn btn-sm btn-info mr-3 ml-3" (click)="onPrev()">Previous Page</button>
+  <button class="btn btn-sm btn-info" (click)="onNext()">Next Page</button>
+</div>
